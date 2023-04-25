@@ -23,6 +23,11 @@ public class UserPreferencesImpl(private val sharedPreferences: SharedPreference
     override fun clear() = update { it.clear() }
 
     override fun contains(key: String) = sharedPreferences.contains(key)
+    override fun remove(key: String) {
+        if (contains(key)) {
+            update { it.remove(key) }
+        }
+    }
 
     // region String
     override fun addString(key: String, value: String) = update { it.putString(key, value) }

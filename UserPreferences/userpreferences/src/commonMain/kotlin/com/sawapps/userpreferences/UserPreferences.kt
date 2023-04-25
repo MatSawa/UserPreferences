@@ -9,6 +9,7 @@ interface UserPreferences {
 
     fun clear()
     fun contains(key: String): Boolean
+    fun remove(key: String)
 
     // region String
     fun addString(key: String, value: String)

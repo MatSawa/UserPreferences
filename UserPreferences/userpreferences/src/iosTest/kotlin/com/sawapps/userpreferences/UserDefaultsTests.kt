@@ -1,5 +1,5 @@
 package com.sawapps.userpreferences
 
 class UserDefaultsTests : UserPreferencesTests() {
-    override fun createSettings(): UserPreferences = UserPreferencesImpl.Factory.create("test")
+    override fun createSettings(): UserPreferences = UserPreferencesImpl.Factory.create(null)
 }

@@ -7,6 +7,6 @@ import org.robolectric.annotation.Config
 
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [30], manifest = Config.NONE)
-class UserSettingsTests : UserPreferencesTests() {
-    override fun createSettings(): UserPreferences = UserPreferencesImpl.Factory(ApplicationProvider.getApplicationContext()).create(null)
+class UserSharedPreferencesWithNameTests : UserPreferencesTests() {
+    override fun createSettings(): UserPreferences = UserPreferencesImpl.Factory(ApplicationProvider.getApplicationContext()).create("Test")
 }
