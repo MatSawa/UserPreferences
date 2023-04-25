@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 
-public class UserPreferencesImpl(private val sharedPreferences: SharedPreferences) : UserPreferences {
-    public class Factory(context: Context) : UserPreferences.Factory {
+class UserPreferencesImpl(private val sharedPreferences: SharedPreferences) : UserPreferences {
+    class Factory(context: Context) : UserPreferences.Factory {
         private val appContext: Context = context.applicationContext
 
-        public override fun create(name: String?): UserPreferencesImpl {
+        override fun create(name: String?): UserPreferencesImpl {
             val preferencesName = name ?: "${appContext.packageName}_user_preferences"
             val sharedPreferences = appContext.getSharedPreferences(preferencesName, MODE_PRIVATE)
             return UserPreferencesImpl(sharedPreferences)

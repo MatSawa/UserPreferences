@@ -7,67 +7,67 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 abstract class UserPreferencesTests {
-    lateinit var settings: UserPreferences
+    lateinit var userPreferences: UserPreferences
 
-    abstract fun createSettings(): UserPreferences
+    abstract fun createUserPreferences(): UserPreferences
 
     @BeforeTest
     fun setup() {
-        settings = createSettings()
+        userPreferences = createUserPreferences()
     }
 
     @AfterTest
     fun tearDown() {
-        settings.clear()
+        userPreferences.clear()
     }
 
     @Test
     fun clearAllElements() {
         // given
-        settings.addString("1", "value")
-        settings.addBoolean("2", true)
-        settings.addFloat("3", Float.MIN_VALUE)
-        settings.addInt("4", Int.MIN_VALUE)
-        settings.addDouble("5", Double.MIN_VALUE)
-        settings.addLong("6", Long.MIN_VALUE)
+        userPreferences.addString("1", "value")
+        userPreferences.addBoolean("2", true)
+        userPreferences.addFloat("3", Float.MIN_VALUE)
+        userPreferences.addInt("4", Int.MIN_VALUE)
+        userPreferences.addDouble("5", Double.MIN_VALUE)
+        userPreferences.addLong("6", Long.MIN_VALUE)
 
         // when
-        settings.clear()
+        userPreferences.clear()
 
         // then
-        assertNull(settings.getString("1"))
-        assertNull(settings.getBoolean("2"))
-        assertNull(settings.getFloat("3"))
-        assertNull(settings.getInt("4"))
-        assertNull(settings.getDouble("5"))
-        assertNull(settings.getLong("6"))
+        assertNull(userPreferences.getString("1"))
+        assertNull(userPreferences.getBoolean("2"))
+        assertNull(userPreferences.getFloat("3"))
+        assertNull(userPreferences.getInt("4"))
+        assertNull(userPreferences.getDouble("5"))
+        assertNull(userPreferences.getLong("6"))
     }
 
     @Test
     fun removeSingleElement() {
         // given
-        settings.addString("1", "value")
-        settings.addBoolean("2", true)
-        settings.addFloat("3", Float.MIN_VALUE)
-        settings.addInt("4", Int.MIN_VALUE)
-        settings.addDouble("5", Double.MIN_VALUE)
-        settings.addLong("6", Long.MIN_VALUE)
+        userPreferences.addString("1", "value")
+        userPreferences.addBoolean("2", true)
+        userPreferences.addFloat("3", Float.MIN_VALUE)
+        userPreferences.addInt("4", Int.MIN_VALUE)
+        userPreferences.addDouble("5", Double.MIN_VALUE)
+        userPreferences.addLong("6", Long.MIN_VALUE)
 
         // when
-        settings.remove("1")
-        settings.remove("2")
-        settings.remove("3")
-        settings.remove("4")
-        settings.remove("5")
-        settings.remove("6")
+        userPreferences.remove("1")
+        userPreferences.remove("2")
+        userPreferences.remove("3")
+        userPreferences.remove("4")
+        userPreferences.remove("5")
+        userPreferences.remove("6")
 
         // then
-        assertNull(settings.getString("1"))
-        assertNull(settings.getBoolean("2"))
-        assertNull(settings.getFloat("3"))
-        assertNull(settings.getInt("4"))
-        assertNull(settings.getDouble("5"))
-        assertNull(settings.getLong("6"))
+        assertNull(userPreferences.getString("1"))
+        assertNull(userPreferences.getBoolean("2"))
+        assertNull(userPreferences.getFloat("3"))
+        assertNull(userPreferences.getInt("4"))
+        assertNull(userPreferences.getDouble("5"))
+        assertNull(userPreferences.getLong("6"))
     }
 
     @Test
@@ -76,7 +76,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getString(key)
+        val result = userPreferences.getString(key)
 
         // then
         assertNull(result)
@@ -89,7 +89,7 @@ abstract class UserPreferencesTests {
         val value = "value"
 
         // when
-        val result = settings.getString(key, defaultValue = value)
+        val result = userPreferences.getString(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -102,8 +102,8 @@ abstract class UserPreferencesTests {
         val value = "value"
 
         // when
-        settings.addString(key, value)
-        val result = settings.getString(key)
+        userPreferences.addString(key, value)
+        val result = userPreferences.getString(key)
 
         // then
         assertEquals(value, result)
@@ -115,7 +115,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getInt(key)
+        val result = userPreferences.getInt(key)
 
         // then
         assertNull(result)
@@ -128,7 +128,7 @@ abstract class UserPreferencesTests {
         val value = Int.MAX_VALUE
 
         // when
-        val result = settings.getInt(key, defaultValue = value)
+        val result = userPreferences.getInt(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -141,8 +141,8 @@ abstract class UserPreferencesTests {
         val value = Int.MAX_VALUE
 
         // when
-        settings.addInt(key, value)
-        val result = settings.getInt(key)
+        userPreferences.addInt(key, value)
+        val result = userPreferences.getInt(key)
 
         // then
         assertEquals(value, result)
@@ -154,7 +154,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getLong(key)
+        val result = userPreferences.getLong(key)
 
         // then
         assertNull(result)
@@ -167,7 +167,7 @@ abstract class UserPreferencesTests {
         val value = Long.MAX_VALUE
 
         // when
-        val result = settings.getLong(key, defaultValue = value)
+        val result = userPreferences.getLong(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -180,8 +180,8 @@ abstract class UserPreferencesTests {
         val value = Long.MAX_VALUE
 
         // when
-        settings.addLong(key, value)
-        val result = settings.getLong(key)
+        userPreferences.addLong(key, value)
+        val result = userPreferences.getLong(key)
 
         // then
         assertEquals(value, result)
@@ -193,7 +193,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getDouble(key)
+        val result = userPreferences.getDouble(key)
 
         // then
         assertNull(result)
@@ -206,7 +206,7 @@ abstract class UserPreferencesTests {
         val value = Double.MAX_VALUE
 
         // when
-        val result = settings.getDouble(key, defaultValue = value)
+        val result = userPreferences.getDouble(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -219,8 +219,8 @@ abstract class UserPreferencesTests {
         val value = Double.MAX_VALUE
 
         // when
-        settings.addDouble(key, value)
-        val result = settings.getDouble(key)
+        userPreferences.addDouble(key, value)
+        val result = userPreferences.getDouble(key)
 
         // then
         assertEquals(value, result)
@@ -232,7 +232,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getFloat(key)
+        val result = userPreferences.getFloat(key)
 
         // then
         assertNull(result)
@@ -245,7 +245,7 @@ abstract class UserPreferencesTests {
         val value = Float.MAX_VALUE
 
         // when
-        val result = settings.getFloat(key, defaultValue = value)
+        val result = userPreferences.getFloat(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -258,8 +258,8 @@ abstract class UserPreferencesTests {
         val value = Float.MAX_VALUE
 
         // when
-        settings.addFloat(key, value)
-        val result = settings.getFloat(key)
+        userPreferences.addFloat(key, value)
+        val result = userPreferences.getFloat(key)
 
         // then
         assertEquals(value, result)
@@ -271,7 +271,7 @@ abstract class UserPreferencesTests {
         val key = "key"
 
         // when
-        val result = settings.getBoolean(key)
+        val result = userPreferences.getBoolean(key)
 
         // then
         assertNull(result)
@@ -284,7 +284,7 @@ abstract class UserPreferencesTests {
         val value = true
 
         // when
-        val result = settings.getBoolean(key, defaultValue = value)
+        val result = userPreferences.getBoolean(key, defaultValue = value)
 
         // then
         assertEquals(value, result)
@@ -297,8 +297,8 @@ abstract class UserPreferencesTests {
         val value = true
 
         // when
-        settings.addBoolean(key, value)
-        val result = settings.getBoolean(key)
+        userPreferences.addBoolean(key, value)
+        val result = userPreferences.getBoolean(key)
 
         // then
         assertEquals(value, result)

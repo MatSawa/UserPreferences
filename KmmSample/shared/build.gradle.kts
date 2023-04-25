@@ -1,4 +1,5 @@
 val userpreferences: String by project
+val koin: String by project
 
 plugins {
     kotlin("multiplatform")
@@ -28,7 +29,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("com.sawapps:userpreferences:$userpreferences")
-                implementation("io.insert-koin:koin-core:3.2.0")
+                implementation("io.insert-koin:koin-core:$koin")
             }
         }
         val commonTest by getting {
@@ -38,7 +39,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("io.insert-koin:koin-android:3.2.0")
+                implementation("io.insert-koin:koin-android:$koin")
             }
         }
         val androidUnitTest by getting

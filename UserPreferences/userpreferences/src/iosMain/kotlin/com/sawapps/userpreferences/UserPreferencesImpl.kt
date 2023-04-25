@@ -3,11 +3,11 @@ package com.sawapps.userpreferences
 import platform.Foundation.NSBundle
 import platform.Foundation.NSUserDefaults
 
-public class UserPreferencesImpl(private val userDefaults: NSUserDefaults) : UserPreferences {
-    public object Factory : UserPreferences.Factory {
+class UserPreferencesImpl(private val userDefaults: NSUserDefaults) : UserPreferences {
+    object Factory : UserPreferences.Factory {
         private val bundleIdentifier: String = NSBundle.mainBundle.bundleIdentifier.orEmpty()
 
-        public override fun create(name: String?): UserPreferencesImpl {
+        override fun create(name: String?): UserPreferencesImpl {
             if (name == bundleIdentifier) throw IllegalStateException("Name cannot be the same as bundle identifier")
 
             val userDefaultsName = name ?: "$bundleIdentifier.userpreferences"
