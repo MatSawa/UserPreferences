@@ -1,9 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
-val androidxTest: String by project
-val androidxTestJunit: String by project
-val roboelectric: String by project
-
 val artifactGroupId: String by project
 group = artifactGroupId
 
@@ -49,9 +45,9 @@ kotlin {
         val androidUnitTest by getting {
             dependsOn(commonTest)
             dependencies {
-                implementation("androidx.test:core:$androidxTest")
-                implementation("androidx.test.ext:junit:$androidxTestJunit")
-                implementation("org.robolectric:robolectric:$roboelectric")
+                implementation("androidx.test:core:${Versions.androidxTest}")
+                implementation("androidx.test.ext:junit:${Versions.androidxTestJunit}")
+                implementation("org.robolectric:robolectric:${Versions.roboelectric}")
             }
         }
         val iosX64Main by getting
