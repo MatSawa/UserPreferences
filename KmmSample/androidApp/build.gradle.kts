@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.sawapps.kmmsample.android"
+    namespace = "com.matsawa.kmmsample.android"
     compileSdk = 33
     defaultConfig {
-        applicationId = "com.sawapps.kmmsample.android"
+        applicationId = "com.matsawa.kmmsample.android"
         minSdk = 21
         targetSdk = 33
         versionCode = 1

@@ -1,11 +1,3 @@
-//
-//  FormViewModel.swift
-//  iosApp
-//
-//  Created by Mateusz Sawa on 4/22/23.
-//  Copyright © 2023 SawApps. All rights reserved.
-//
-
 import shared
 
 class FormViewModel: ObservableObject {

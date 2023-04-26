@@ -5,9 +5,9 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".MainApplication">
+        android:name="com.matsawa.kmmsample.android.MainApplication">
         <activity
-            android:name=".MainActivity"
+            android:name="com.matsawa.kmmsample.android.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

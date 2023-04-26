@@ -28,7 +28,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.sawapps:userpreferences:$userpreferences")
+                implementation("com.matsawa:userpreferences:$userpreferences")
                 implementation("io.insert-koin:koin-core:$koin")
             }
         }
@@ -65,7 +65,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sawapps.kmmsample"
+    namespace = "com.matsawa.kmmsample"
     compileSdk = 33
     defaultConfig {
         minSdk = 21

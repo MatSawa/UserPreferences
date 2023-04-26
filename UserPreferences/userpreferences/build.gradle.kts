@@ -72,7 +72,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.sawapps.userpreferences"
+    namespace = "com.matsawa.userpreferences"
     compileSdk = 33
     defaultConfig {
         minSdk = 21
