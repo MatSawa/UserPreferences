@@ -9,7 +9,7 @@ version = artifactVersion
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("maven-publish")
+    id("convention.publication")
 }
 
 kotlin {

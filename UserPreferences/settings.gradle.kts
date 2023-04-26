@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
+includeBuild("convention-plugins")
 rootProject.name = "UserPreferences"
 include(":userpreferences")
