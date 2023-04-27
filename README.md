@@ -4,11 +4,37 @@
 This is a Kotlin Multiplatform library for storing key-value data in Android and iOS applications. It is designed to provide a consistent interface for storing and retrieving data across both platforms. Under the hood, the library uses Shared Preferences on Android and User Defaults on iOS.
 
 # Requirements
+
 Android API Level >= **21**
 iOS **ios_arm64** and **ios_x64** targets
 
-# Usage
-To use the library, you can add it as a dependency in your Kotlin Multiplatform project. Here is an example of how to use the library to store and retrieve a String value:
+## Adding the library to your project
+
+To use the library, you need to add the library to your project dependencies. Here's how you can do it in Gradle:
+
+Add `mavenCentral` to your repositories in the `build.gradle.kts` file:
+
+```kotlin
+repositories {
+    mavenCentral()
+    // others
+}
+```
+
+Add the library to your project dependencies in the commonMain:
+
+```kotlin
+ commonMain {
+    dependencies {
+        implementation("com.matsawa:userpreferences:0.0.1")
+        // others
+    }
+}
+```
+
+## Adding the library to your project
+
+After adding the library, you can use it in your code. Here is an example of how to store and retrieve a String value:
 
 ```kotlin
 // Store a value
